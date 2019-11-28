@@ -25,8 +25,7 @@ int main()
 
 	cout << *x_ptr << endl; // segmentation fault
 	
-
-
+	
 
 	/*
 	В новом стандарте появились следующие умные указатели: unique_ptr, shared_ptr и weak_ptr. Все они объявлены в заголовочном файле <memory>
