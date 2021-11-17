@@ -4,6 +4,30 @@ using namespace std;
 
 int main()
 {
+	int a = 42;
+	int b = 42;
+	int* var1;
+	int* var2;
+
+	var1 = &a;
+	var2 = &b;
+	cout << "var1 = &a; var2 = &b;" << endl;
+	cout << "Var1\t *var1: " << *var1 << "\t&var1: " << &var1 << "\t\tvar1: " << var1 << endl;
+	cout << "Var2\t *var2: " << *var2 << "\t&var2: " << &var2 << "\t\tvar2: " << var2 << endl;
+
+	var2 = var1;
+	cout << endl << "var2 = var1;" << endl;
+	cout << "Var1\t *var1: " << *var1 << "\t&var1: " << &var1 << "\t\tvar1: " << var1 << endl;
+	cout << "Var2\t *var2: " << *var2 << "\t&var2: " << &var2 << "\t\tvar2: " << var2 << endl;
+
+	var1 = NULL;
+	cout << endl << "var1 = NULL;" << endl;
+	cout << "Var1\t *var1: " << (var1 == NULL ? "n/a" : "" + *var1) << "\t&var1: " << &var1 << "\t\tvar1: " << var1 << endl; // error
+	cout << "Var2\t *var2: " << (var2 == NULL ? "n/a" : "" + *var2) << "\t&var2: " << &var2 << "\t\tvar2: " << var2 << endl;
+	cout << endl;
+
+	return 0;
+
 	cout << "Smart pointers in C++\n";
 	/*
 	Smart pointer Ч это объект, работать с которым можно как с обычным указателем,
@@ -20,7 +44,7 @@ int main()
 	auto_ptr<int> x_ptr(new int(42));
 	auto_ptr<int> y_ptr;
 
-	// вот это нехороший и не€вный момент: права владени€ ресурсов уход€т в y_ptr
+	// вот это нехороший и не€вный момент: права владени€ ресурсами уход€т в y_ptr
 	y_ptr = x_ptr; // x_ptr начинает указывать на null pointer
 
 	cout << *x_ptr << endl; // segmentation fault
@@ -59,7 +83,7 @@ int main()
 	*/
 
 	/*
-	¬ отличии от рассмотренных выше указателей, shared_ptr реализует подсчет ссылок на ресурс.
+	¬ отличие от рассмотренных выше указателей, shared_ptr реализует подсчет ссылок на ресурс.
 	–есурс освободитс€ тогда, когда счетчик ссылок на него будет равен 0.
 	 ак видно, система реализует одно из основных правил сборщика мусора.
 	
